@@ -1,50 +1,21 @@
-# React + TypeScript + Vite
+# Frontend Cardápio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bem-vindo ao **Frontend Cardápio**! Este projeto é uma aplicação frontend desenvolvida para um sistema de cardápio. Ele permite visualizar e interagir com os itens de um cardápio, como pratos e bebidas.
 
-Currently, two official plugins are available:
+## Descrição
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+O **Frontend Cardápio** é uma aplicação web projetada para ser a interface de usuário de um sistema de cardápio. A aplicação fornece uma interface intuitiva para visualizar, adicionar e gerenciar itens de cardápio. 
 
-## Expanding the ESLint configuration
+### Funcionalidades
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Visualização de Cardápio:** Exibe uma lista de itens de cardápio com detalhes como nome, descrição e preço.
+- **Adição de Itens:** Permite adicionar novos itens ao cardápio.
+- **Gerenciamento de Itens:** Atualiza ou remove itens existentes no cardápio.
 
-- Configure the top-level `parserOptions` property like this:
+## Tecnologias Usadas
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **React:** Biblioteca para construção da interface de usuário.
+- **Axios:** Para realizar chamadas HTTP para o backend.
+- **CSS:** Para estilização da aplicação.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
