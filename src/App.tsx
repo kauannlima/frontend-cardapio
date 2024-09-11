@@ -9,6 +9,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   const { data, refetch } = useFoodData();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [modalContent, setModalContent] = useState('');
 
   const handleOpenModal = () => {
     setIsModalOpen(prev => !prev)
@@ -24,7 +26,10 @@ function App() {
 }
 
 const handleEdit = (id: string) => {
-  alert(`Este recurso ainda está em desenvolvimento... Enquanto isso, veja que o ID deste item é: ${id}`);
+  setModalContent(`🚧 Atenção! Este recurso ainda está em construção... 😅
+    <br /><br />Mas não se preocupe! Para alegrar seu dia, aqui está o ID deste item: <strong>${id}
+    </strong>. <br /><br />Em breve, mais novidades!`);
+  setShowModal(true);
 }
 
   return (
@@ -41,11 +46,22 @@ const handleEdit = (id: string) => {
         onDelete={() => handleDelete(foodData.id?.toString() || '')}
         />
         )}
-      </div>
+</div>
       {isModalOpen && <CreateModal closeModal={handleOpenModal}/>}
       <button className='btn-secondary' onClick={handleOpenModal}>Novo</button>
+
+      {/* Modal para mostrar mensagens - Retirado da Internet e boa!!!*/}
+      {showModal && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <h2>Calma lá, campeão!</h2>
+            <p dangerouslySetInnerHTML={{ __html: modalContent }}></p>
+            <button className="btn btn-closed" onClick={() => setShowModal(false)}>X</button>
+          </div>
+        </div>
+      )}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

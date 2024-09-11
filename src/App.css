@@ -5,15 +5,17 @@
     justify-content: center;
     width: 100%;
     font-family: sans-serif;
+    margin-top: 32px;
 }
 
 .card-grid{
+    margin: 32px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 16px;
 }
 
-.container .btn-secondary, .container .btn-close{
+.container .btn-secondary, .container .btn-closed{
     font-size: 20px;
     background-color: #0275d8;
     color: white;
