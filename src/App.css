@@ -3,7 +3,7 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    width: 100vw;
+    width: 100%;
     font-family: sans-serif;
 }
 
@@ -13,7 +13,8 @@
     gap: 16px;
 }
 
-.container button{
+.container .btn-secondary, .container .btn-close{
+    font-size: 20px;
     background-color: #0275d8;
     color: white;
     font-weight: bold;
@@ -24,6 +25,5 @@
 }
 
 .container button:hover{
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 7px 0px;
     transform: scale(1.1);
 }

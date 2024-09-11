@@ -43,19 +43,18 @@ export function CreateModal({closeModal}: ModalProps){
         closeModal();
     }, [isSuccess])
 
-    return(
+    return (
         <div className="modal-overlay">
             <div className="modal-body">
-                <h2>Cadastre um novo item no cardápio</h2>
+                <button onClick={closeModal} className="btn-close">X</button>
+                <h2>Cadastre um novo item</h2>
                 <form className="input-container">
-                    <Input label="Title" value={title} updateValue={setTitle}/>
-                    <Input label="Price" value={price} updateValue={setPrice}/>
-                    <Input label="Image" value={image} updateValue={setImage}/>
+                    <Input label="Título do item" value={title} updateValue={setTitle} />
+                    <Input label="Preço do item" value={price} updateValue={setPrice} />
+                    <Input label="Link da imagem do item" value={image} updateValue={setImage} />
                 </form>
-                <button onClick={submit} className="btn-secondary">Postar
-                </button>
-
+                <button onClick={submit} className="btn-secondary">Incluir</button>
             </div>
         </div>
     )
-}
+}    
