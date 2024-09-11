@@ -16,7 +16,7 @@
 .modal-overlay .modal-body {
     background-color: white;
     padding: 24px;
-    height: 70%;
+    max-height: 60%;
     border-radius: 24px;
     max-width: 40%;
 
@@ -29,7 +29,7 @@
 .modal-overlay .modal-content {
     background-color: white;
     padding: 24px;
-    height: 40%;
+    max-height: 40%;
     width: 40%;
     border-radius: 24px;
 }
@@ -76,21 +76,16 @@
     border-color: #646cff;
 }
 
-.modal-overlay .modal-body .btn-closed, 
-.modal-overlay .modal-content .btn-closed{
+.modal-overlay .modal-body .btn-close, 
+.modal-overlay .modal-content .btn-close{
     position: initial;
     align-self: self-end;
-    background-color: red;
-    padding: 8px;     
-    font-size: 14px;   
-    height: 32px;    
-    width: 32px;
+    background-color: red;     
+    height: 16px;    
+    width: 16px;
+    color: black;
     
 
 }
 
-.modal-overlay .modal-body .btn-closed:hover {
-    box-shadow: rgba(255, 0, 0, 0.2) 0px 7px 7px 0px;
-    background-color: rgb(253, 0, 0);
-    transform: scale(1);
-}
+

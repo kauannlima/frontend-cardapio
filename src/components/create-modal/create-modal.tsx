@@ -46,7 +46,7 @@ export function CreateModal({closeModal}: ModalProps){
     return (
         <div className="modal-overlay">
             <div className="modal-body">
-                <button onClick={closeModal} className="btn-closed">X</button>
+                <button onClick={closeModal} className="btn-close"></button>
                 <h2>Cadastre um novo item</h2>
                 <form className="input-container">
                     <Input label="Título do item" value={title} updateValue={setTitle} />

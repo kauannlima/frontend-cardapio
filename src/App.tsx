@@ -56,7 +56,7 @@ const handleEdit = (id: string) => {
           <div className="modal-content">
             <h2>Calma lá, campeão!</h2>
             <p dangerouslySetInnerHTML={{ __html: modalContent }}></p>
-            <button className="btn btn-closed" onClick={() => setShowModal(false)}>X</button>
+            <button className="btn-close" onClick={() => setShowModal(false)}></button>
           </div>
         </div>
       )}
