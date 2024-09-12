@@ -18,7 +18,8 @@ function App() {
 
   const handleDelete = async (id: string) => {
     try {
-        await axios.delete(`http://localhost:8080/food/${id}`);
+        // await axios.delete(`http://localhost:8080/food/${id}`);
+        await axios.delete(`https://backend-cardapio-5kjd.onrender.com/food/${id}`);
         refetch();
     } catch (error) {
         console.error('Error deleting food item:', error);
