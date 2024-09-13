@@ -1,4 +1,4 @@
-.card{
+.card {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -6,109 +6,49 @@
     width: 300px;
     border-radius: 8px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-}
-
-.card img{
+}.card img {
     border-radius: 8px 8px 0 0;
     width: 300px;
     height: 300px;
     object-fit: cover; /* ou use 'contain' se preferir */
-}
-
-.card  p{
-    margin: 30px 0 ;
+}.card p {
+    margin: 30px 0;
     font-size: 20px;
-}
-
-.card .button-container {
+}.card .button-container {
     display: flex;
     width: 100%;
     justify-content: space-around;
-
-    
-}
-
-.card .button-container .btn{
+}.card .button-container .btn {
     color: white;
     margin-bottom: 20px;
     transition: all 0.1s linear 0.1s;
     font-size: 20px;
-}
-
-.card .btn-edit{
+}.card .btn-edit {
     background-color: #007bff;
-}
-
-.card .btn-edit:hover{
+}.card .btn-edit:hover {
     background-color: #0056b3;
-}
-
-.card .btn-delete{
+}.card .btn-delete {
     background-color: #d9534f;
-}
-.card .btn-delete:hover{
+}.card .btn-delete:hover {
     background-color: #c9302c;
-}
-
-@media (max-width: 450px) {    
-    .card{
+}@media (max-width: 450px) {
+    .card {
         width: 200px;
-    }
-
-    .card img{
+    }.card img {
         width: 200px;
         height: 200px;
-    }
-    
-    .card  p{
-        margin: 30px 0 ;
+    }.card p {
         font-size: 12px;
-    }
-    
-    .card .button-container .btn{
+    }.card .button-container .btn {
         font-size: 12px;
-    }
-    
-}
-
-@media  (min-width: 451px) and (max-width: 650px) {    
-    .card{
+    }}@media (min-width: 451px) and (max-width: 1000px) {
+    .card {
         width: 250px;
-    }
-
-    .card img{
+    }.card img {
         width: 250px;
         height: 250px;
-    }
-    
-    .card  p{
-        margin: 30px 0 ;
+    }.card p {
         font-size: 16px;
-    }
-    
-    .card .button-container .btn{
+    }.card .button-container .btn {
         font-size: 16px;
-    }
-    
-}
-
-@media (min-width: 651px) and (max-width: 1000px) {    
-    .card{
-        width: 250px;
-    }
-
-    .card img{
-        width: 250px;
-        height: 250px;
-    }
-    
-    .card  p{
-        margin: 30px 0 ;
-        font-size: 16px;
-    }
-    
-    .card .button-container .btn{
-        font-size: 16px;
-    }
-    
-}
+    }}
