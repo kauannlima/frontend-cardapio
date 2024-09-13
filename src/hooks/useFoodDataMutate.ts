@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios, { AxiosPromise } from "axios"
 import { FoodData } from '../interface/FoodData';
 
-// const API_URL = 'http://localhost:8080';
+ // const API_URL = 'http://localhost:8080';
 const API_URL = 'https://backend-cardapio-5kjd.onrender.com';
 
 const postData = async (data: FoodData): AxiosPromise<any> => {

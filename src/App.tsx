@@ -18,8 +18,8 @@ function App() {
 
   const handleDelete = async (id: string) => {
     try {
-        // await axios.delete(`http://localhost:8080/food/${id}`);
-        await axios.delete(`https://backend-cardapio-5kjd.onrender.com/food/${id}`);
+      //    await axios.delete(`http://localhost:8080/food/${id}`);
+     await axios.delete(`https://backend-cardapio-5kjd.onrender.com/food/${id}`);
         refetch();
     } catch (error) {
         console.error('Error deleting food item:', error);
@@ -51,7 +51,7 @@ const handleEdit = (id: string) => {
       {isModalOpen && <CreateModal closeModal={handleOpenModal}/>}
       <button className='btn-secondary' onClick={handleOpenModal}>Novo</button>
 
-      {/* Modal para mostrar mensagens - Retirado da Internet e boa!!!*/}
+      {/* Modal para mostrar mensagem - Retirado da Internet e boa!!!*/}
       {showModal && (
         <div className="modal-overlay">
           <div className="modal-content">

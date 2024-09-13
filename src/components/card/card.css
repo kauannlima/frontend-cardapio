@@ -24,6 +24,7 @@
     display: flex;
     width: 100%;
     justify-content: space-around;
+
     
 }
 
@@ -31,6 +32,7 @@
     color: white;
     margin-bottom: 20px;
     transition: all 0.1s linear 0.1s;
+    font-size: 20px;
 }
 
 .card .btn-edit{
@@ -48,6 +50,65 @@
     background-color: #c9302c;
 }
 
+@media (max-width: 450px) {    
+    .card{
+        width: 200px;
+    }
 
+    .card img{
+        width: 200px;
+        height: 200px;
+    }
+    
+    .card  p{
+        margin: 30px 0 ;
+        font-size: 12px;
+    }
+    
+    .card .button-container .btn{
+        font-size: 12px;
+    }
+    
+}
 
+@media  (min-width: 451px) and (max-width: 650px) {    
+    .card{
+        width: 250px;
+    }
 
+    .card img{
+        width: 250px;
+        height: 250px;
+    }
+    
+    .card  p{
+        margin: 30px 0 ;
+        font-size: 16px;
+    }
+    
+    .card .button-container .btn{
+        font-size: 16px;
+    }
+    
+}
+
+@media (min-width: 651px) and (max-width: 1000px) {    
+    .card{
+        width: 250px;
+    }
+
+    .card img{
+        width: 250px;
+        height: 250px;
+    }
+    
+    .card  p{
+        margin: 30px 0 ;
+        font-size: 16px;
+    }
+    
+    .card .button-container .btn{
+        font-size: 16px;
+    }
+    
+}
