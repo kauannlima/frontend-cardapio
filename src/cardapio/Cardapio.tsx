@@ -6,6 +6,10 @@ import { CreateModal } from '../components/create-modal/create-modal';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+export function getAuthToken(): string | null {
+  return localStorage.getItem('token');
+}
+
 function Cardapio() {
   const { data, refetch } = useFoodData();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -17,14 +21,19 @@ function Cardapio() {
   }
 
   const handleDelete = async (id: string) => {
+    const token = getAuthToken();
+
     try {
- //  await axios.delete(`http://localhost:8080/food/${id}`);
-    await axios.delete(`https://backend-cardapio-5kjd.onrender.com/food/${id}`);
-        refetch();
+      await axios.delete(`https://backend-cardapio-5kjd.onrender.com/food/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}` // Adiciona o token ao cabeçalho Authorization
+        }
+      });
+      refetch(); // Recarrega os dados após a exclusão
     } catch (error) {
-        console.error('Error deleting food item:', error);
+      console.error('Error deleting food item:', error);
     }
-}
+  };
 
 const handleEdit = (id: string) => {
   setModalContent(`🚧 Atenção! Este recurso ainda está em construção... 😅
