@@ -1,5 +1,4 @@
-/* Modal para mostrar mensagem - Retirado da Internet e boa!!!*/
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { getAuthToken } from './authUtils';
 
@@ -8,8 +7,23 @@ interface ProtectedRouteProps {
 }
 
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ element }) => {
-    const token = getAuthToken();
     const location = useLocation();
+    const token = getAuthToken();
+    const [redirect, setRedirect] = useState(false);
+
+    useEffect(() => {
+        const timeoutId = setTimeout(() => {
+            localStorage.removeItem('token');
+            alert("Login expirado, faça novamente o login");
+            setRedirect(true);
+        }, 3600000);
+
+        return () => clearTimeout(timeoutId);
+    }, []);
+
+    if (redirect) {
+        return <Navigate to="/" state={{ from: location }} />;
+    }
 
     if (!token) {
         return <Navigate to="/" state={{ from: location }} />;

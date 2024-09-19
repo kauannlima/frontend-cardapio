@@ -4,7 +4,14 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
+
+export function getApiUrl(): string | null  {
+    return localStorage.getItem('API_URL');
+  }
+
 const Login: React.FC = () => {
+
+    const url = getApiUrl();
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState<string | null>(null);
@@ -17,20 +24,24 @@ const Login: React.FC = () => {
 
         try {
             const response = await axios.post(
-                'https://backend-cardapio-5kjd.onrender.com/auth/login',
+               `${url}/auth/login`,
                 { login, password },
                 { headers: { 'Content-Type': 'application/json' } }
+                
             );
-            console.log(response.data);
+            console.log("Response data: "+response.data);
             const { token } = response.data;
             localStorage.setItem('token', token);
             window.location.href = '/cardapio'; 
         } catch (error: any) {
             console.error('Error logging in:', error.response?.data || error.message);
-            setError('Falha no login. Por favor, verifique suas credenciais...');
+            if (axios.isAxiosError(error)) {
+                console.error('Axios error response:', error.response);
+            }
         }
          finally {
             setLoading(false);
+            
         }
     };
 

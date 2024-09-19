@@ -2,18 +2,21 @@ import { useQuery } from "@tanstack/react-query";
 import axios, { AxiosPromise } from "axios";
 import { FoodData } from '../interface/FoodData';
 
-const API_URL = 'https://backend-cardapio-5kjd.onrender.com';
-
 export function getAuthToken(): string | null {
     return localStorage.getItem('token');
 }
 
+export function getApiUrl(): string | null  {
+    return localStorage.getItem('API_URL');
+  }
+
 const fetchData = async (): AxiosPromise<FoodData[]> => {
     const token = getAuthToken(); 
+    const url = getApiUrl();
 
     const headers = token ? { Authorization: `Bearer ${token}` } : {}; 
 
-    const response = await axios.get(API_URL + '/food', { headers }); 
+    const response = await axios.get(url+ '/food', { headers }); 
     return response;
 }
 

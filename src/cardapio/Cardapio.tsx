@@ -10,6 +10,10 @@ export function getAuthToken(): string | null {
   return localStorage.getItem('token');
 }
 
+export function getApiUrl(): string | null  {
+  return localStorage.getItem('API_URL');
+}
+
 function Cardapio() {
   const { data, refetch } = useFoodData();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -22,14 +26,15 @@ function Cardapio() {
 
   const handleDelete = async (id: string) => {
     const token = getAuthToken();
+    const url = getApiUrl();
 
     try {
-      await axios.delete(`https://backend-cardapio-5kjd.onrender.com/food/${id}`, {
+      await axios.delete(`${url}/${id}`, {
         headers: {
-          Authorization: `Bearer ${token}` // Adiciona o token ao cabeçalho Authorization
+          Authorization: `Bearer ${token}`
         }
       });
-      refetch(); // Recarrega os dados após a exclusão
+      refetch();
     } catch (error) {
       console.error('Error deleting food item:', error);
     }
