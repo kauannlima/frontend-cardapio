@@ -14,7 +14,7 @@
     padding: 24px;
     max-height: 60%;
     border-radius: 24px;
-    max-width: 60%;
+    max-width: 50%;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
@@ -50,11 +50,11 @@
     position: initial;
     width: 100%;
     margin: 16px auto;
+    background-color: #28a745;
 }.modal-overlay .modal-body .btn-secondary:hover {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 7px 0px;
-    background-color: #3a44f8;
+    background-color: #1e7e34;
     transform: scale(1);
-    border-color: #646cff;
 }.modal-overlay .modal-body .btn-close, .modal-overlay .modal-content .btn-close{
     position: initial;
     align-self: self-end;

@@ -8,6 +8,8 @@
     background-color: #1a1a1a;
     cursor: pointer;
     transition: border-color 0.25s;
+    font-weight: bold;
+    color: white;
   }
     :root {
       color: #213547;

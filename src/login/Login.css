@@ -1,83 +1,127 @@
-h1{
+h1 {
     text-align: center;
-    margin-top: 5%;
+    margin: 64px 0;
 }
+
 .login-body {
     height: 500px;
+    width: 50%;
+    margin: 0 auto;
     border-radius: 24px;
-    width: 50%; /* Ajustar para permitir mais espaço */
     display: flex;
-    flex-direction: row; /* Colocar um ao lado do outro */
+    flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    border: 1px solid blue;
-    margin: 0% auto;
+}
+
+.login-body .login-content:first-of-type {
+    background-color: #007bff;
+    border-radius: 24px 0 0 24px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.login-body a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.login-body a:hover {
+    color: white;
+    transform: scale(1.05);
+}
+
+.links {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.links a {
+    display: flex;
+    color: white;
+    font-size: 16px;
+}
+
+.links a svg {
+    margin-right: 8px;
+    vertical-align: middle;
 }
 
 .login-content {
     padding: 24px;
     height: 100%;
-    border-radius: 24px 0 0 24px;;
-    width: 50%; /* Ajustar o tamanho para caber os dois elementos */
-    border: 1px solid blue;
+    width: 50%;
+    border: 3px solid #007bff;
+    border-radius: 0 24px 24px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
+
+form {
+    width: 80%;
+}
+
 .login-body h2 {
     font-size: 32px;
     text-align: center;
     width: 100%;
     margin: 24px 0;
-} .login-body.input-container {
-    width: calc(100% - 24px);
-} .login-body input {
+}
+
+.login-body input {
     padding: 10px;
-    border: 2px solid #c6c5c5c5;
-    color: rgba(0,0,0,0.9);
+    border: 2px solid #0056b3;
+    color: rgba(0, 0, 0, 0.9);
     font-size: 18px;
     line-height: 24px;
     border-radius: 12px;
     width: 100%;
     margin-bottom: 12px;
-} .login-body label {
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.login-body input:focus {
+    outline: none;
+    border-color: #0056b3;
+    box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.25);
+}
+
+.login-body label {
     color: #242424;
     font-weight: 600;
     margin-bottom: 4px;
     font-size: 18px;
-} .login-body .btn-secondary {
-    position: initial;
-    width: 100%;
+}
+
+.login-content .btn-logar {
+    background-color: #007bff;
+    border-radius: 8px;
+    width: 60%;
     margin: 16px auto;
-} .login-body .btn-secondary:hover {
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 7px 0px;
-    background-color: #3a44f8;
-    transform: scale(1);
-    border-color: #646cff;
-} .login-body.btn-close,  .modal-content .btn-close{
-    position: initial;
-    align-self: self-end;
-    background-color: red;     
-    height: 16px;    
-    width: 16px;
-    color: black;
-}@media (max-width: 450px) {    
-     .modal-body, .modal-content {
-        max-height: 80%;
-        max-width: 80%;
-    } .login-body h2 {
-        font-size: 24px;
-        width: 100%;
-    } .login-body input {
-        font-size: 16px;
-        margin-bottom: 12px;
-    } .login-body label {
-        font-size: 16px;
-    }}@media  (min-width: 451px) and (max-width: 650px)  {    
-     .modal-body, .modal-content {
-        max-height: 80%;
-        max-width: 80%;
-    } .login-body h2 {
-        font-size: 24px;
-        width: 100%;
-    }}@media (min-width: 651px) and (max-width: 1200px)  {    
-     .modal-body, .modal-content {
-        max-height: 80%;
-    }}
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.login-content .btn-logar:hover {
+    background-color: #0056b3;
+    box-shadow: rgba(100, 100, 111, 0.3) 0px 8px 12px 0px;
+    transform: scale(1.05);
+    border-color: #007bff;
+}
+
+.login-content .btn-logar:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+.error-container {
+    min-height: 40px;
+    width: 100%;
+    margin-top: 10px;
+}
