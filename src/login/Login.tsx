@@ -4,13 +4,11 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
-
-export function getApiUrl(): string | null  {
+export function getApiUrl(): string | null {
     return localStorage.getItem('API_URL');
-  }
+}
 
 const Login: React.FC = () => {
-
     const url = getApiUrl();
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
@@ -24,34 +22,34 @@ const Login: React.FC = () => {
 
         try {
             const response = await axios.post(
-               `${url}/auth/login`,
+                `${url}/auth/login`,
                 { login, password },
                 { headers: { 'Content-Type': 'application/json' } }
-                
             );
-            console.log("Response data: "+response.data);
+            console.log("Dados da resposta:", response.data);
             const { token } = response.data;
             localStorage.setItem('token', token);
-            window.location.href = '/cardapio'; 
+            window.location.href = '/cardapio';
         } catch (error: any) {
-            console.error('Error logging in:', error.response?.data || error.message);
+            console.error('Erro ao fazer login:', error.response?.data || error.message);
             if (axios.isAxiosError(error)) {
-                console.error('Axios error response:', error.response);
+                console.error('Resposta de erro do Axios:', error.response);
+                setError('Usuário ou senha incorretos. Tente novamente.');
             }
-        }
-         finally {
+        } finally {
             setLoading(false);
-            
         }
     };
 
     return (
         <div>
-            <h1>Bem-vindo ao meu projeto: Cardápio Online</h1>
+            <h1>Bem-vindo ao meu projeto!</h1>
             <div className='login-body'>
                 <div className='login-content'>
-                    <h2>Sobre a Aplicação</h2>
-                    <p>Cardápio Online é um sistema de gerenciamento de cardápios para lanchonetes e restaurantes, permitindo cadastro e visualização de produtos de forma fácil e eficiente.</p>
+                    <h2><a href='/cardapio-cliente'>Acesse o cardápio como cliente</a></h2>
+                    <p>
+                        <strong>Atenção!</strong> A opção de registrar novos funcionários na tela inicial é apenas para fins de estudo; em um cenário real, essa prática não é recomendada.
+                    </p>
                     <div className='links'>
                         <a href='https://github.com/kauannlima/backend-cardapio' target='_blank' rel='noopener noreferrer'>
                             <FaGithub size={24} />
@@ -70,12 +68,15 @@ const Login: React.FC = () => {
                             <span>Email</span>
                         </a>
                     </div>
-                    <a href='/register'>Registre-se</a>
+                    
                 </div>
 
                 <div className='login-content'>
                     <h2>Login</h2>
                     <form onSubmit={handleSubmit}>
+                        <p>
+                            Para acessar o cardápio como funcionário e realizar alterações nos dados, é necessário efetuar login.
+                        </p>
                         <div>
                             <label htmlFor="login">Usuário:</label>
                             <input
@@ -97,11 +98,12 @@ const Login: React.FC = () => {
                             />
                         </div>
                         <div className="error-container">
-                            {error && <p style={{ color: '#007bff ' }} className="error-message">{error}</p>}
+                            {error && <p style={{ color: '#d9534f' }} className="error-message">{error}</p>}
                         </div>
                         <button className='btn-logar' type="submit" disabled={loading}>
                             {loading ? 'Entrando...' : 'Login'}
                         </button>
+                        <button className='btn-logar'>Registre-se</button>
                     </form>
                 </div>
             </div>

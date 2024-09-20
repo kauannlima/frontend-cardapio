@@ -15,8 +15,8 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ element }) => {
         const timeoutId = setTimeout(() => {
             localStorage.removeItem('token');
             alert("Login expirado, faça novamente o login");
-            setRedirect(true);
-        }, 3600000);
+            setRedirect(true); // Atualiza o estado para redirecionar
+        }, 60000 * 60);
 
         return () => clearTimeout(timeoutId);
     }, []);
