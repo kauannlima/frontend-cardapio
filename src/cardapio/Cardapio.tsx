@@ -29,7 +29,7 @@ function Cardapio() {
     const url = getApiUrl();
 
     try {
-      await axios.delete(`${url}/${id}`, {
+      await axios.delete(`${url}/food/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }

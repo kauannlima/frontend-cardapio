@@ -12,7 +12,7 @@
 }.modal-overlay .modal-body {
     background-color: white;
     padding: 24px;
-    max-height: 60%;
+    max-height: 90%;
     border-radius: 24px;
     max-width: 50%;
     display: flex;
@@ -68,10 +68,7 @@
     .modal-overlay .modal-body{
         max-width: 95%;
         max-height: 95%;
-    } .modal-overlay .modal-content {
-        max-height: 95%;
-        width: 90%;
-    }.modal-overlay .modal-body h2 {
+    } .modal-overlay .modal-body h2 {
         font-size: 24px;
         width: 100%;
     }.modal-overlay .modal-body input {
