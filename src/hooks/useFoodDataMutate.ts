@@ -5,14 +5,18 @@ import { FoodData } from '../interface/FoodData';
 export function getAuthToken(): string | null {
     return localStorage.getItem('token');
 }
-const API_URL = 'http://localhost:8080';
-//const API_URL = 'https://backend-cardapio-5kjd.onrender.com';
+
+export function getApiUrl(): string | null  {
+    return localStorage.getItem('API_URL');
+}
+
+const url = getApiUrl();
 
 const postData = async (data: FoodData): AxiosPromise<any> => {
     const token = getAuthToken(); 
     const headers = token ? { Authorization: `Bearer ${token}` } : {}; 
 
-    const response = axios.post(API_URL + '/food', data,  {headers});
+    const response = axios.post(url + '/food', data,  {headers});
 
     return response;
 }
