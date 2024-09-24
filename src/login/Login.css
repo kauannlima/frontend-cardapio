@@ -1,65 +1,33 @@
 h1 {
     text-align: center;
-    margin: 24px 0;
-}
-
-.login-body {
-    height: 500px;
-    width: 90%;
+    margin: 1em 0;
+} h2{
+    margin-bottom: 0;
+} .login-body {
+    height: 30em;
+    max-width: 65em;
     margin: 0 auto;
     border-radius: 24px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 5%;
-}
-
-.login-body a {
+}.login-body a {
     color: white;
     text-decoration: none;
     transition: color 0.3s, transform 0.3s;
-}
-
-.login-body a:hover {
+}.login-body a:hover {
     color: white;
     cursor: pointer;
     transform: scale(1.05);
-}
-
-.links {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    gap: 1px;
-    margin: 0 auto;
-    width: 100%;
-}
-
-.links a {
-    display: flex;
-    color: white;
-    font-size: 16px;
-}
-
-.links a svg {
-    margin-right: 8px;
-    vertical-align: middle;
-}
-
-.login-body .login-content:first-of-type {
+}.login-body .login-content:first-of-type {
     background-color: #007bff;
     border-radius: 24px 0 0 24px;
     color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.login-content {
+}.login-content {
     padding: 12px;
     height: 100%;
+    min-height: 400px;
     width: 50%;
     border: 3px solid #007bff;
     border-radius: 0 24px 24px 0;
@@ -69,33 +37,38 @@ h1 {
     align-items: center;
 }
 
+.links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px; 
+    justify-items: center; 
+    margin: 0 auto;
+    width: 100%;
+}
+
+.links a {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+.links a svg {
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
 form {
-    width: 80%;
+    width: 85%;
 }
-
-.login-body  .login-content h2 {
-
-    text-align: center;
-    width: 100%;
-    margin: 32px 0;
-}
-
-.login-body  .login-content:first-of-type p {
-    text-align: center;
-    width: 100%;
-    margin: 24px 0;
-}
-
 
 .login-body input {
     padding: 10px;
     border: 2px solid #0056b3;
     color: rgba(0, 0, 0, 0.9);
-    font-size: 18px;
+    font-size: 16px;
     line-height: 24px;
     border-radius: 12px;
     width: 100%;
-    margin-bottom: 12px;
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 
@@ -105,14 +78,17 @@ form {
     box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.25);
 }
 
-.login-body label {
+.login-body .login-content form div:last-of-type label{
+    margin: 1.4em 0 0;
+}
+.login-body .login-content label:last-of-type {
     color: #242424;
     font-weight: 600;
-    margin-bottom: 4px;
-    font-size: 18px;
+    margin: 0 0 0;
+    font-size: 1em;
 }
 
-.login-content .btn-logar {
+.login-content .btn-home {
     background-color: #007bff;
     border-radius: 8px;
     width: 45%;
@@ -120,61 +96,47 @@ form {
     transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
 }
 
-.login-content .btn-logar:hover {
+.login-content .btn-home:hover {
     background-color: #0056b3;
     box-shadow: rgba(100, 100, 111, 0.3) 0px 8px 12px 0px;
     transform: scale(1.05);
 }
 
-.login-content .btn-logar:focus {
+.login-content .btn-home:focus {
     outline: none;
     box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
 }
 
-.error-container {
-    min-height: 40px;
-    width: 100%;
-    margin-top: 10px;
-}
-
 @media (max-width: 530px) {
     .login-body {
+        width: 100%;
         height: 630px;
         flex-direction: column;
 
     }
-
     .links {
-        flex-direction: column;
-        align-items: center;
+        grid-template-columns: 1fr;
         gap: 10px;
-        margin-bottom: 32px;
     }
-
-
-
     .login-body .login-content:first-of-type {
         border-radius: 24px 24px 0 0;
     }
 
     .login-body .login-content {
         width: 100%;
-        border-radius: 0 0 24px 24px;
+        border-radius: 0;
     }
 
-    .login-content .btn-logar {
+    .login-content .btn-home {
         width: 100%;
         margin-bottom: 10px;
     }
     
 }
 
-@media (min-width: 531px) and (max-width: 980px) {
+@media (min-width: 531px) and (max-width: 720px) {
     .login-body{
         margin-bottom: 60%;
-    }
-    .links {
-        margin: 32px 0;
     }
 
     .login-body {
@@ -189,5 +151,11 @@ form {
     .login-body .login-content {
         width: 100%;
         border-radius: 0 0 24px 24px;
+    }
+}
+@media (max-width: 1066px){
+    .links {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
     }
 }

@@ -29,7 +29,7 @@ const Input = ({ label, value, updateValue, maxLength } : InputProps) => {
         />  
         {/*Código da Internet*/}
          {maxLength !== undefined && (
-                <p>{remainingChars} caracteres restantes</p>
+                <p className="remainingChars">{remainingChars} caracteres restantes</p>
             )}   
         </>
     )
@@ -39,9 +39,16 @@ export function CreateModal({closeModal}: ModalProps){
     const[title, setTitle] = useState("");
     const[price, setPrice] = useState<number>(0);
     const[image, setImage] = useState("");
+    const [error, setError] = useState(""); // Código da Internet, se quebrar sei la...
     const {mutate, isSuccess, isPending} = useFoodDataMutate();
 
     const submit = () => {
+
+        if (!title || !price || !image) {
+            setError("Por favor, preencha todos os campos.");
+            return;
+          }
+
         const foodData: FoodData = {
             title,
             price,
@@ -62,10 +69,11 @@ export function CreateModal({closeModal}: ModalProps){
                 <h2>Cadastre um novo item</h2>
                 <form className="input-container">
                     <Input 
+                    maxLength={22}
                     label="Título do item" 
                     value={title} 
                     updateValue={setTitle} 
-                    maxLength={22} />
+                     />
                     <Input 
                     label="Preço do item" 
                     value={price} 
@@ -75,6 +83,9 @@ export function CreateModal({closeModal}: ModalProps){
                     value={image} 
                     updateValue={setImage} />
                 </form>
+                <div className="error">
+                {error && <p style={{ color: "red" }}>{error}</p>}
+                </div>
                 <button onClick={submit} className="btn-secondary">
                  {isPending ? 'Carregando...' : 'Incluir'}
                 </button>

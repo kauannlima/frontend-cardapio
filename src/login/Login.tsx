@@ -8,6 +8,10 @@ export function getApiUrl(): string | null {
     return localStorage.getItem('API_URL');
 }
 
+const Registrar = () => {
+    window.location.href = '/register';
+};
+
 const Login: React.FC = () => {
     const url = getApiUrl();
     const [login, setLogin] = useState('');
@@ -34,7 +38,7 @@ const Login: React.FC = () => {
             console.error('Erro ao fazer login:', error.response?.data || error.message);
             if (axios.isAxiosError(error)) {
                 console.error('Resposta de erro do Axios:', error.response);
-                setError('Usuário ou senha incorretos. Tente novamente.');
+                setError('Usuário ou senha inválidos. Por favor, tente novamente.');
             }
         } finally {
             setLoading(false);
@@ -43,12 +47,12 @@ const Login: React.FC = () => {
 
     return (
         <div>
-            <h1>Bem-vindo ao meu projeto!</h1>
+            <h1>Bem-vindo ao Projeto de Cardápio!</h1>
             <div className='login-body'>
                 <div className='login-content'>
-                    <h2><a href='/cardapio-cliente'>Acesse o cardápio como cliente</a></h2>
-                    <p>
-                        <strong>Atenção!</strong> A opção de registrar novos funcionários na tela inicial é apenas para fins de estudo; em um cenário real, essa prática não é recomendada.
+                    <h2><a href='/cardapio-cliente'>Visualizar cardápio como cliente</a></h2>
+                    
+                    <p><strong>Atenção! </strong> A funcionalidade de registrar novos funcionários na tela de login é destinada apenas para fins de teste e aprendizado, não devendo ser utilizada em um ambiente real. Recomenda-se que essa opção seja disponibilizada somente após um usuário do tipo "ADM" realizar o login.
                     </p>
                     <div className='links'>
                         <a href='https://github.com/kauannlima/backend-cardapio' target='_blank' rel='noopener noreferrer'>
@@ -68,15 +72,12 @@ const Login: React.FC = () => {
                             <span>Email</span>
                         </a>
                     </div>
-                    
                 </div>
 
                 <div className='login-content'>
-                    <h2>Login</h2>
+                    <h2>Área de Funcionários</h2>
                     <form onSubmit={handleSubmit}>
-                        <p>
-                            Para acessar o cardápio como funcionário e realizar alterações nos dados, é necessário efetuar login.
-                        </p>
+                        
                         <div>
                             <label htmlFor="login">Usuário:</label>
                             <input
@@ -85,6 +86,7 @@ const Login: React.FC = () => {
                                 value={login}
                                 onChange={(e) => setLogin(e.target.value)}
                                 required
+                                placeholder="Digite seu nome de usuário"
                             />
                         </div>
                         <div>
@@ -95,15 +97,19 @@ const Login: React.FC = () => {
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 required
+                                placeholder="Digite sua senha"
                             />
+                        <div className="error">
+                        {error && <p  style={{ color: '#d9534f' }}>{error}</p>}
                         </div>
-                        <div className="error-container">
-                            {error && <p style={{ color: '#d9534f' }} className="error-message">{error}</p>}
                         </div>
-                        <button className='btn-logar' type="submit" disabled={loading}>
+                        
+                        <button className='btn-home' type="submit" disabled={loading}>
                             {loading ? 'Entrando...' : 'Login'}
                         </button>
-                        <button className='btn-logar'>Registre-se</button>
+                        <button type="button" className='btn-home' onClick={Registrar}>
+                          Novo Funcionário
+                        </button>
                     </form>
                 </div>
             </div>

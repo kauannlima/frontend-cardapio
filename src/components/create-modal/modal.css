@@ -12,7 +12,7 @@
 }.modal-overlay .modal-body {
     background-color: white;
     padding: 24px;
-    max-height: 90%;
+    max-height: 95%;
     border-radius: 24px;
     max-width: 50%;
     display: flex;
@@ -31,7 +31,9 @@
     text-align: center;
     width: 100%;
     margin: 24px 0;
-}.modal-overlay .modal-body .input-container {
+}.modal-overlay .modal-body .remainingChars{
+    font-size: 13px;
+} .modal-overlay .modal-body .input-container {
     width: calc(100% - 24px);
 }.modal-overlay .modal-body input {
     padding: 10px;
@@ -41,16 +43,16 @@
     line-height: 24px;
     border-radius: 12px;
     width: 100%;
-    margin-bottom: 12px;
+    margin-bottom: 6px;
 }.modal-overlay .modal-body label {
     color: #242424;
     font-weight: 600;
-    margin-bottom: 4px;
+    margin-bottom: 8px;
     font-size: 18px;
 }.modal-overlay .modal-body .btn-secondary {
     position: initial;
     width: 100%;
-    margin: 16px auto;
+    margin: 0 auto;
     background-color: #28a745;
 }.modal-overlay .modal-body .btn-secondary:hover {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 7px 0px;
@@ -63,6 +65,7 @@
     height: 16px;    
     width: 16px;
     color: black;
+    flex-shrink: 0;
 }@media (max-width: 450px) {    
    
     .modal-overlay .modal-body{
@@ -83,10 +86,4 @@
         } .modal-overlay .modal-body h2 {
         font-size: 24px;
         width: 100%;
-    }}@media (min-width: 651px) and (max-width: 1200px)  {    
-        .modal-overlay .modal-body{
-            max-width: 90%;
-            max-height: 95%;
-        }
-    
-}
+    }}

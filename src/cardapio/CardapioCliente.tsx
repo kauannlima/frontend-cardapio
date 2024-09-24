@@ -4,6 +4,7 @@ import { CardCliente } from '../components/card/cardcliente';
 import { useFoodDataCliente } from '../hooks/useFoodDataCliente';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 function CardapioCliente() {
   const { data } = useFoodDataCliente();
 
