@@ -13,31 +13,46 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 16px;
-}.container .btn-secondary {
-    font-size: 20px;
+}.container .btn-cardapio {
+    font-size: 16px;
     background-color: #28a745;
     color: white;
     font-weight: bold;
     position: fixed;
     bottom: 16px;
-    right: 16px;
     transition: all 0.1s linear 0.1s;
-}.container button:hover {
+}
+.container .btn-cardapio:first-of-type{
+    right: 16px;
+}
+.container .btn-cardapio:last-of-type {
+    left: 16px;
+}
+.container button:hover {
     transform: scale(1.1);
     background-color: #1e7e34;
-}@media (max-width: 450px) {    
+}@media (max-width: 499px) {    
     .card-grid {
         grid-template-columns: 1fr;
-    }    .container .btn-secondary {
+    }    .container .btn-cardapio {
         font-size: 14px;
-        right: 8px;
-    }}@media (min-width: 451px) and (max-width: 720px) {    
+    }.container .btn-cardapio:first-of-type{
+        right: 0px;
+    }
+    .container .btn-cardapio:last-of-type {
+        left: 0px;
+    }}@media (min-width: 500px) and (max-width: 800px) {    
     .card-grid {
         grid-template-columns: 1fr;
-    }.container .btn-secondary {
+    }.container .btn-cardapio {
         font-size: 16px;
-        right: 8px;
-    }}@media (min-width: 721px) and (max-width: 1200px) {    
+    }.container .btn-cardapio:first-of-type{
+        right: 4px;
+    }
+    .container .btn-cardapio:last-of-type {
+        left: 4px;
+    }
+}@media (min-width: 801px) and (max-width: 1200px) {    
     .card-grid {
         grid-template-columns: 1fr 1fr;
     }}

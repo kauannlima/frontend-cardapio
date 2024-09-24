@@ -10,9 +10,13 @@ export function getAuthToken(): string | null {
   return localStorage.getItem('token');
 }
 
-export function getApiUrl(): string | null  {
+export function getApiUrl(): string | null {
   return localStorage.getItem('API_URL');
 }
+
+const Registrar = () => {
+  window.location.href = '/register';
+};
 
 function Cardapio() {
   const { data, refetch } = useFoodData();
@@ -40,30 +44,31 @@ function Cardapio() {
     }
   };
 
-const handleEdit = (id: string) => {
-  setModalContent(`🚧 Atenção! Este recurso ainda está em construção... 😅
+  const handleEdit = (id: string) => {
+    setModalContent(`🚧 Atenção! Este recurso ainda está em construção... 😅
     <br /><br />Mas não se preocupe! Para alegrar seu dia, aqui está o ID deste item: <strong>${id}
     </strong>. <br /><br />Em breve, mais novidades!`);
-  setShowModal(true);
-}
+    setShowModal(true);
+  }
 
   return (
     <div className="container">
       <h1>Cardápio</h1>
       <div className="card-grid">
-        
-        {data?.map(foodData => 
-        <Card 
-        price={foodData.price} 
-        title={foodData.title} 
-        image={foodData.image}
-        onEdit={() => handleEdit(foodData.id?.toString() || '')}
-        onDelete={() => handleDelete(foodData.id?.toString() || '')}
-        />
+
+        {data?.map(foodData =>
+          <Card
+            price={foodData.price}
+            title={foodData.title}
+            image={foodData.image}
+            onEdit={() => handleEdit(foodData.id?.toString() || '')}
+            onDelete={() => handleDelete(foodData.id?.toString() || '')}
+          />
         )}
-</div>
-      {isModalOpen && <CreateModal closeModal={handleOpenModal}/>}
-      <button className='btn-secondary' onClick={handleOpenModal}>Novo</button>
+      </div>
+      {isModalOpen && <CreateModal closeModal={handleOpenModal} />}
+      <button className='btn-cardapio' onClick={handleOpenModal}>Novo Item</button>
+      <button className='btn-cardapio' id='funcionario' onClick={Registrar}>Novo User</button>
 
       {/* Modal para mostrar mensagem - Retirado da Internet e boa!!!*/}
       {showModal && (

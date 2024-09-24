@@ -50,7 +50,7 @@ const Login: React.FC = () => {
             <h1>Bem-vindo ao Projeto de Cardápio!</h1>
             <div className='login-body'>
                 <div className='login-content'>
-                    <h2><a href='/cardapio-cliente'>Visualizar cardápio como cliente</a></h2>
+                    <h2><a href='/cardapio-cliente'>Visualizar cardápio como cliente.</a></h2>
                     
                     <p><strong>Atenção! </strong> A funcionalidade de registrar novos funcionários na tela de login é destinada apenas para fins de teste e aprendizado, não devendo ser utilizada em um ambiente real. Recomenda-se que essa opção seja disponibilizada somente após um usuário do tipo "ADM" realizar o login.
                     </p>
