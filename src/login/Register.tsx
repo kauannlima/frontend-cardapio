@@ -1,11 +1,17 @@
-import React, { useState } from 'react'
-import './Login.css'
+import React, { useState } from 'react';
+import './Login.css';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+export function getApiUrl(): string | null {
+    return localStorage.getItem('API_URL');
+}
+
 const Login: React.FC = () => {
+    const url = getApiUrl();
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
+    const [role, setRole] = useState('USER'); // Valor padrão definido
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
 
@@ -14,52 +20,69 @@ const Login: React.FC = () => {
         setLoading(true);
         setError(null);
 
-        try{
-            const response = await axios.post('https://backend-cardapio-5kjd.onrender.com/auth/login', {
+        try {
+            const response = await axios.post(`${url}/auth/register`, {
                 login,
                 password,
+                role
             });
-            const { token } = response.data;
-            localStorage.setItem('token', token);
-            window.location.href = '/cardapio'; 
-                 } catch (error: any) {
-            setError('Login failed. Please check your credentials.');
+            window.location.href = '/';
+        } catch (error: any) {
+            setError('O nome de usuário já está em uso.');
         } finally {
             setLoading(false);
         }
     };
+
     return (
-        <div>
-            <h1>Bom vindo ao meu projeto Cardapio Online</h1>
-            <h2>Login</h2>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="login">Login:</label>
-                    <input
-                        type="text"
-                        id="login"
-                        value={login}
-                        onChange={(e) => setLogin(e.target.value)}
-                        required
-                    />
-                </div>
-                <div>
-                    <label htmlFor="password">Password:</label>
-                    <input
-                        type="password"
-                        id="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
-                </div>
-                {error && <p style={{ color: 'red' }}>{error}</p>}
-                <button type="submit" disabled={loading}>
-                    {loading ? 'Logging in...' : 'Login'}
-                </button>
-            </form>
+        <div className='register-body'>
+            <div className='register-content'>
+                <h2>Registrar Novo Funcionário</h2>
+                <form onSubmit={handleSubmit}>
+                    <div>
+                        <label htmlFor="login">Nome de Usuário:</label>
+                        <input
+                            type="text"
+                            id="login"
+                            value={login}
+                            onChange={(e) => setLogin(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="password">Senha:</label>
+                        <input
+                            type="password"
+                            id="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
+                    </div>
+
+                    <div>
+                        <label>Tipo de Usuário:</label>
+                        <select 
+                            id='role'
+                            value={role}
+                            onChange={(e) => setRole(e.target.value)}
+                        >
+                            <option value="ADMIN">Administrador</option>
+                            <option value="USER">Operador</option>
+                        </select>
+                        <div className='advise'> 
+                            <p>Apenas usuários com perfil de "Administrador" podem realizar exclusões no cardápio.</p>
+                        </div>
+                    </div>
+
+                    {error && <p style={{ color: 'red' }}>{error}</p>}
+                    <button type="submit" disabled={loading}>
+                        {loading ? 'Cadastrando...' : 'Cadastrar'}
+                    </button>
+                </form>
+            </div>
         </div>
     );
 };
-      
+
 export default Login;

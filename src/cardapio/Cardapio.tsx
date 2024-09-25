@@ -5,6 +5,7 @@ import { useFoodData } from '../hooks/useFoodData';
 import { CreateModal } from '../components/create-modal/create-modal';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { FaArrowLeft,} from 'react-icons/fa';
 
 export function getAuthToken(): string | null {
   return localStorage.getItem('token');
@@ -16,6 +17,10 @@ export function getApiUrl(): string | null {
 
 const Registrar = () => {
   window.location.href = '/register';
+};
+
+const TelaLogin = () => {
+  window.location.href = '/';
 };
 
 function Cardapio() {
@@ -68,7 +73,8 @@ function Cardapio() {
       </div>
       {isModalOpen && <CreateModal closeModal={handleOpenModal} />}
       <button className='btn-cardapio' onClick={handleOpenModal}>Novo Item</button>
-      <button className='btn-cardapio' id='funcionario' onClick={Registrar}>Novo User</button>
+      <button className='btn-cardapio' onClick={Registrar}>Novo User</button>
+      <button className='btn-cardapio' onClick={TelaLogin}><FaArrowLeft size={16} /></button>
 
       {/* Modal para mostrar mensagem - Retirado da Internet e boa!!!*/}
       {showModal && (

@@ -5,12 +5,12 @@
     justify-content: center;
     width: 300px;
     border-radius: 8px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
 }.card img {
     border-radius: 8px 8px 0 0;
     width: 300px;
     height: 300px;
-    object-fit: cover; /* ou use 'contain' se preferir */
+    object-fit: cover;
 }.card p {
     margin: 30px 0;
     font-size: 20px;
@@ -23,15 +23,16 @@
     margin-bottom: 20px;
     transition: all 0.1s linear 0.1s;
     font-size: 20px;
+    font-weight: bold;
 }.card .btn-edit {
-    background-color: #007bff;
+    background-color: #007bff ;
 }.card .btn-edit:hover {
     background-color: #0056b3;
 }.card .btn-delete {
     background-color: #d9534f;
 }.card .btn-delete:hover {
     background-color: #c9302c;
-}@media (max-width: 450px) {
+}@media (max-width: 499px) {
     .card {
         width: 200px;
     }.card img {
@@ -41,7 +42,7 @@
         font-size: 12px;
     }.card .button-container .btn {
         font-size: 12px;
-    }}@media (min-width: 451px) and (max-width: 1000px) {
+    }}@media (min-width: 500px) and (max-width: 1000px) {
     .card {
         width: 250px;
     }.card img {

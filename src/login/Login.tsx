@@ -99,7 +99,7 @@ const Login: React.FC = () => {
                                 required
                                 placeholder="Digite sua senha"
                             />
-                        <div className="error">
+                        <div className="advise">
                         {error && <p  style={{ color: '#d9534f' }}>{error}</p>}
                         </div>
                         </div>
@@ -108,7 +108,7 @@ const Login: React.FC = () => {
                             {loading ? 'Entrando...' : 'Login'}
                         </button>
                         <button type="button" className='btn-home' onClick={Registrar}>
-                          Novo Funcionário
+                          Novo User
                         </button>
                     </form>
                 </div>

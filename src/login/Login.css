@@ -13,7 +13,20 @@ h1 {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-}.login-body a {
+}.register-body{
+    background-color: #007bff;
+    height: 33em;
+    max-width: 45em;
+    margin: 5em auto;
+    border-radius: 24px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.login-body a {
     color: white;
     text-decoration: none;
     transition: color 0.3s, transform 0.3s;
@@ -36,6 +49,10 @@ h1 {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+}
+.register-content{
+    border: 1px pink solid;
+    max-width: 100em;
 }
 
 .links {
@@ -60,9 +77,13 @@ h1 {
 
 form {
     width: 85%;
+    margin: 0 auto;
+}
+.register-content form {
+    width: 100%;
 }
 
-.login-body input {
+.login-body input, .register-body input, select {
     padding: 10px;
     border: 2px solid #0056b3;
     color: rgba(0, 0, 0, 0.9);
@@ -70,10 +91,16 @@ form {
     line-height: 24px;
     border-radius: 12px;
     width: 100%;
+
     transition: border-color 0.3s, box-shadow 0.3s;
 }
+select{
+    display: block;
+    max-width: 9em;
+}
 
-.login-body input:focus {
+
+.login-body input:focus, .register-body input:focus {
     outline: none;
     border-color: #0056b3;
     box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.25);
@@ -88,8 +115,13 @@ form {
     margin: 0 0 0;
     font-size: 1em;
 }
+.register-body  label {
+    font-weight: 600;
+    margin: 1.4em 0 0;
+    font-size: 1em;
+}
 
-.error {
+.advise {
     min-height: 1.5em;
     width: 100%;
     margin-bottom: 40px;

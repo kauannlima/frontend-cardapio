@@ -15,31 +15,35 @@
     gap: 16px;
 }.container .btn-cardapio {
     font-size: 16px;
-    background-color: #28a745;
+    background-color: #007bff ;
     color: white;
     font-weight: bold;
     position: fixed;
-    bottom: 16px;
     transition: all 0.1s linear 0.1s;
 }
 .container .btn-cardapio:first-of-type{
     right: 16px;
+    bottom: 16px;
 }
-.container .btn-cardapio:last-of-type {
+.container .btn-cardapio:nth-of-type(2){
+    left: 16px;
+    bottom: 16px;
+}
+.container .btn-cardapio:nth-of-type(3){
+    top: 16px;
     left: 16px;
 }
 .container button:hover {
-    transform: scale(1.1);
-    background-color: #1e7e34;
+    background-color: #0056b3 ;
 }@media (max-width: 499px) {    
     .card-grid {
         grid-template-columns: 1fr;
     }    .container .btn-cardapio {
-        font-size: 14px;
+        font-size: 12px;
     }.container .btn-cardapio:first-of-type{
         right: 0px;
     }
-    .container .btn-cardapio:last-of-type {
+    .container .btn-cardapio:nth-of-type(2), .container .btn-cardapio:nth-of-type(3){
         left: 0px;
     }}@media (min-width: 500px) and (max-width: 800px) {    
     .card-grid {
@@ -49,7 +53,7 @@
     }.container .btn-cardapio:first-of-type{
         right: 4px;
     }
-    .container .btn-cardapio:last-of-type {
+    .container .btn-cardapio:nth-of-type(2), .container .btn-cardapio:nth-of-type(3) {
         left: 4px;
     }
 }@media (min-width: 801px) and (max-width: 1200px) {    
