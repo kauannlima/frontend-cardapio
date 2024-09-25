@@ -76,7 +76,7 @@ const Login: React.FC = () => {
                     </div>
 
                     {error && <p style={{ color: 'red' }}>{error}</p>}
-                    <button type="submit" disabled={loading}>
+                    <button className='btn-reg' type="submit" disabled={loading}>
                         {loading ? 'Cadastrando...' : 'Cadastrar'}
                     </button>
                 </form>

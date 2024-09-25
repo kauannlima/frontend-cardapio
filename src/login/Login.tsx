@@ -47,13 +47,12 @@ const Login: React.FC = () => {
 
     return (
         <div>
-            <h1>Bem-vindo ao Projeto de Cardápio!</h1>
             <div className='login-body'>
                 <div className='login-content'>
-                    <h2><a href='/cardapio-cliente'>Visualizar cardápio como cliente.</a></h2>
+                    <h2><a href='/cardapio-cliente'>Visualizar cardápio como cliente</a></h2>
                     
-                    <p><strong>Atenção! </strong> A funcionalidade de registrar novos funcionários na tela de login é destinada apenas para fins de teste e aprendizado, não devendo ser utilizada em um ambiente real. Recomenda-se que essa opção seja disponibilizada somente após um usuário do tipo "ADM" realizar o login.
-                    </p>
+                    <p><strong>Aviso:</strong> A funcionalidade de registrar novos funcionários nesta tela é apenas para testes e aprendizado. Em um ambiente real, essa opção deve estar disponível somente após um usuário realizar login.</p>
+                    
                     <div className='links'>
                         <a href='https://github.com/kauannlima/backend-cardapio' target='_blank' rel='noopener noreferrer'>
                             <FaGithub size={24} />
@@ -75,11 +74,10 @@ const Login: React.FC = () => {
                 </div>
 
                 <div className='login-content'>
-                    <h2>Área de Funcionários</h2>
+                    <h2>Acesso de Funcionários</h2>
                     <form onSubmit={handleSubmit}>
-                        
                         <div>
-                            <label htmlFor="login">Usuário:</label>
+                            <label htmlFor="login">Nome de Usuário:</label>
                             <input
                                 type="text"
                                 id="login"
@@ -99,16 +97,16 @@ const Login: React.FC = () => {
                                 required
                                 placeholder="Digite sua senha"
                             />
-                        <div className="advise">
-                        {error && <p  style={{ color: '#d9534f' }}>{error}</p>}
-                        </div>
+                            <div className="advise">
+                                {error && <p style={{ color: '#d9534f' }}>{error}</p>}
+                            </div>
                         </div>
                         
                         <button className='btn-home' type="submit" disabled={loading}>
-                            {loading ? 'Entrando...' : 'Login'}
+                            {loading ? 'Entrando...' : 'Entrar'}
                         </button>
                         <button type="button" className='btn-home' onClick={Registrar}>
-                          Novo User
+                            Novo Usuário
                         </button>
                     </form>
                 </div>
