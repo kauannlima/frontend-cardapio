@@ -28,7 +28,7 @@ function Cardapio() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState('');
-  const [userRole, setUserRole] = useState<string | null>(localStorage.getItem('role')); 
+  const [userRole] = useState<string | null>(localStorage.getItem('role')); 
 
   console.log(userRole);
 
