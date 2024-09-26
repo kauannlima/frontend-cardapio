@@ -27,10 +27,12 @@ const Login: React.FC = () => {
                 role
             });
             window.location.href = '/';
+            console.log("Response: "+ response)           
         } catch (error: any) {
             setError('O nome de usuário já está em uso.');
         } finally {
             setLoading(false);
+           
         }
     };
 
