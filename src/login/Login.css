@@ -110,13 +110,17 @@ body {
     width: 40%;
 }.btn-home:last-of-type {
     width: 50%;
-}.register-content .btn-reg {
+}.register-content .btn-reg, .login-content .btn-cardapio {
     background-color: white;
     width: 50%;
     color: #0056b3;
     border: 2px solid #0056b3;
     margin: 0;
-}.login-content .btn-home:hover {
+}.login-content .btn-cardapio{
+    width: 70%;
+    margin: 0 auto;
+}
+.login-content .btn-home:hover {
     background-color: #0056b3;
     box-shadow: rgba(100, 100, 111, 0.3) 0 8px 12px 0;
     transform: scale(1.05);

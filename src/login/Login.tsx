@@ -12,6 +12,10 @@ const Registrar = () => {
     window.location.href = '/register';
 };
 
+const CardapioCliente = () => {
+    window.location.href = '/cardapio-cliente';
+};
+
 const Login: React.FC = () => {
     const url = getApiUrl();
     const [login, setLogin] = useState('');
@@ -50,8 +54,10 @@ const Login: React.FC = () => {
         <div>
             <div className='login-body'>
                 <div className='login-content'>
-                    <h2><a href='/cardapio-cliente'>Visualizar cardápio como cliente</a></h2>
-                    
+                    <h2>Acesso de Clientes</h2>
+                    <button type="button" className='btn-cardapio' onClick={CardapioCliente}>
+                    Acessar cardápio do cliente
+                        </button>
                     <p><strong>Aviso:</strong> A funcionalidade de registrar novos funcionários nesta tela é apenas para testes e aprendizado. Em um ambiente real, essa opção deve estar disponível somente após um usuário realizar login.</p>
                     
                     <div className='links'>
