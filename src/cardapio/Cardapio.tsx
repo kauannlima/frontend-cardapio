@@ -28,6 +28,9 @@ function Cardapio() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState('');
+  const [userRole, setUserRole] = useState<string | null>(localStorage.getItem('role')); 
+
+  console.log(userRole);
 
   const handleOpenModal = () => {
     setIsModalOpen(prev => !prev);
@@ -46,6 +49,7 @@ function Cardapio() {
       refetch();
     } catch (error) {
       console.error('Erro ao excluir item do cardápio:', error);
+      alert('Usuario não tem permissões para exclusão')
     }
   };
 
@@ -67,6 +71,8 @@ function Cardapio() {
             image={foodData.image}
             onEdit={() => handleEdit(foodData.id?.toString() || '')}
             onDelete={() => handleDelete(foodData.id?.toString() || '')}
+            showDeleteButton={() => userRole == 'ROLE_ADMIN'}
+            showEditButton={() => userRole == 'ROLE_ADMIN'}
           />
         ))}
       </div>

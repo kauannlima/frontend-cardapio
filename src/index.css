@@ -10,8 +10,7 @@
     transition: border-color 0.25s;
     font-weight: bold;
     color: white;
-  }
-    :root {
+  }:root {
       color: #213547;
       background-color: #ffffff;
     }a:hover {

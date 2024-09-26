@@ -31,8 +31,9 @@ const Login: React.FC = () => {
                 { headers: { 'Content-Type': 'application/json' } }
             );
             console.log("Dados da resposta:", response.data);
-            const { token } = response.data;
+            const { token, role } = response.data;
             localStorage.setItem('token', token);
+            localStorage.setItem('role', role);
             window.location.href = '/cardapio';
         } catch (error: any) {
             console.error('Erro ao fazer login:', error.response?.data || error.message);

@@ -20,30 +20,25 @@
     font-weight: bold;
     position: fixed;
     transition: all 0.1s linear 0.1s;
-}
-.container .btn-cardapio:first-of-type{
+}.container .btn-cardapio:first-of-type{
     left: 16px;
     top: 16px;
-}
-.container .btn-cardapio:nth-of-type(2){
+}.container .btn-cardapio:nth-of-type(2){
     left: 16px;
     bottom: 16px;
-}
-.container .btn-cardapio:nth-of-type(3){
+}.container .btn-cardapio:nth-of-type(3){
     bottom: 16px;
     right: 16px;
-}
-.container button:hover {
+}.container button:hover {
     background-color: #0056b3 ;
 }@media (max-width: 499px) {    
     .card-grid {
         grid-template-columns: 1fr;
-    }    .container .btn-cardapio {
+    }.container .btn-cardapio {
         font-size: 12px;
     }.container .btn-cardapio:first-of-type, .container .btn-cardapio:nth-of-type(2){
         left: 0px;
-    }
-    .container .btn-cardapio:nth-of-type(3){
+    }    .container .btn-cardapio:nth-of-type(3){
         right: 0px;
     }}@media (min-width: 500px) and (max-width: 800px) {    
     .card-grid {
