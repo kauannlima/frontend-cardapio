@@ -18,7 +18,6 @@ O **Frontend Cardápio** é uma aplicação web projetada para ser a interface d
 - **Axios:** Para realizar chamadas HTTP para o backend.
 - **CSS:** Para estilização da aplicação.
   
-## :link: Link:
-```
-https://frontend-cardapio.onrender.com
-```
+## Link para o site em produção
+
+Acesse a aplicação em produção: [EncurtaDev](https://frontend-cardapio.onrender.com)
