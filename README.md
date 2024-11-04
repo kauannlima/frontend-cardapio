@@ -20,4 +20,4 @@ O **Frontend Cardápio** é uma aplicação web projetada para ser a interface d
   
 ## Link para o site em produção
 
-Acesse a aplicação em produção: [EncurtaDev](https://frontend-cardapio.onrender.com)
+Acesse a aplicação em produção: [Cardapio Dev](https://frontend-cardapio.onrender.com)
