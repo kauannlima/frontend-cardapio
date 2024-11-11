@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Login.css';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -22,6 +22,9 @@ const Login: React.FC = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
+    const [isPending, setIsPending] = useState(false);
+    const [isAppLoaded, setIsAppLoaded] = useState(false);
+    const [mensagemDiv, setMensagemDiv] = useState('Carregando aplicação...');
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -49,6 +52,24 @@ const Login: React.FC = () => {
             setLoading(false);
         }
     };
+
+    useEffect(() => {
+        setIsPending(true);
+        const initializeApp = async () => {
+          setMensagemDiv("Carregando aplicação...");
+          try {
+            await axios.get(`${getApiUrl()}/connect`);
+            setIsAppLoaded(true);  
+            setIsPending(false);
+          } catch (error) {
+            console.error('Erro ao inicializar a aplicação: ', error);
+            setMensagemDiv("Não foi possível carregar a aplicação. Aguarde alguns instantes e recarregue a página.");
+          } finally {
+          }
+        };
+    
+        initializeApp();
+      }, []);
 
     return (
         <div>
