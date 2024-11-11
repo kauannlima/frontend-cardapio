@@ -60,7 +60,7 @@ const Login: React.FC = () => {
         const initializeApp = async () => {
           setMensagemDiv("Carregando aplicação...");
           try {
-            await axios.get(`${getApiUrl()}/connect`);
+            await axios.get(`${url}/connect`);
             setIsAppLoaded(true);  
             setIsPending(false);
           } catch (error) {
