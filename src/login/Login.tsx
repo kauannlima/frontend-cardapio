@@ -71,6 +71,10 @@ const Login: React.FC = () => {
         initializeApp();
       }, []);
 
+      if (isPending && !isAppLoaded) {
+        return <div className="loading-screen">{mensagemDiv}</div>;
+      }
+
     return (
         <div>
             <div className='login-body'>
