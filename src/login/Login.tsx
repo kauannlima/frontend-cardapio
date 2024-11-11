@@ -27,6 +27,7 @@ const Login: React.FC = () => {
     const [mensagemDiv, setMensagemDiv] = useState('Carregando aplicação...');
 
     const handleSubmit = async (e: React.FormEvent) => {
+        setIsPending(true);
         e.preventDefault();
         setLoading(true);
         setError(null);
@@ -50,6 +51,7 @@ const Login: React.FC = () => {
             }
         } finally {
             setLoading(false);
+            setIsPending(false);
         }
     };
 
