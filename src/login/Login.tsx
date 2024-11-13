@@ -9,6 +9,7 @@ export function getApiUrl(): string | null {
 }
 
 const Registrar = () => {
+    console.log(getApiUrl());
     window.location.href = '/register';
 };
 
