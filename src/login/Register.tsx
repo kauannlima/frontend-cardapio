@@ -21,7 +21,7 @@ const Login: React.FC = () => {
         setError(null);
 
         try {
-            const response = await axios.post(`${url}/auth/register`, {
+            const response = await axios.post(`${url}auth/register`, {
                 login,
                 password,
                 role
