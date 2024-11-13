@@ -7,7 +7,7 @@ export function getApiUrl(): string | null {
     return localStorage.getItem('API_URL');
 }
 
-const Login: React.FC = () => {
+const Register: React.FC = () => {
     const url = getApiUrl();
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
@@ -21,7 +21,7 @@ const Login: React.FC = () => {
         setError(null);
 
         try {
-            const response = await axios.post(`${url}auth/register`, {
+            const response = await axios.post(`${url}/auth/register`, {
                 login,
                 password,
                 role
@@ -87,4 +87,4 @@ const Login: React.FC = () => {
     );
 };
 
-export default Login;
+export default Register;
