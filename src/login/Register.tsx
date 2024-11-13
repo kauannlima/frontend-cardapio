@@ -7,6 +7,7 @@ export function getApiUrl(): string | null {
     return localStorage.getItem('API_URL');
 }
 
+console.log(getApiUrl());
 const Register: React.FC = () => {
     const url = getApiUrl();
     const [login, setLogin] = useState('');
