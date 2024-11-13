@@ -9,7 +9,7 @@ export function getApiUrl(): string | null  {
 const fetchData = async (): AxiosPromise<FoodData[]> => {
     const url = getApiUrl();
 
-    const response = await axios.get(url+'/food/cliente'); 
+    const response = await axios.get(`${url}food/cliente`); 
     return response;
 }
 
