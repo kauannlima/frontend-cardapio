@@ -56,8 +56,9 @@ const Login: React.FC = () => {
     useEffect(() => {
         const initializeApp = async () => {
             setMensagemDiv("Carregando aplicação...");
+            
             try {
-                const response = await axios.get(`${url}/connect`);
+                const response = await axios.get(`${url}/connect`, { timeout: 5000 }); // Tempo limite de 5 segundos
                 if (response.status === 200) {
                     setIsAppLoaded(true);
                 } else {
@@ -66,13 +67,13 @@ const Login: React.FC = () => {
             } catch (error) {
                 console.error('Erro ao inicializar a aplicação: ', error);
                 setMensagemDiv("Não foi possível carregar a aplicação. Aguarde alguns instantes e recarregue a página.");
+                setIsAppLoaded(true);  // Defina como true para que o app possa ser exibido
             }
         };
     
         initializeApp();
     }, []);
     
-
       if (!isAppLoaded) {
         return <div className="loading-screen">{mensagemDiv}</div>;
       }
