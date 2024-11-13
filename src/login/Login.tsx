@@ -67,7 +67,7 @@ const Login: React.FC = () => {
             } catch (error) {
                 console.error('Erro ao inicializar a aplicação: ', error);
                 setMensagemDiv("Não foi possível carregar a aplicação. Aguarde alguns instantes e recarregue a página.");
-                setIsAppLoaded(true);  // Defina como true para que o app possa ser exibido
+                setIsAppLoaded(true);
             }
         };
     

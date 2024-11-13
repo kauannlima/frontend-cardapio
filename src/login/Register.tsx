@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Login.css';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -15,6 +15,8 @@ const Register: React.FC = () => {
     const [role, setRole] = useState('USER'); // Valor padrão definido
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
+    const [isAppLoaded, setIsAppLoaded] = useState(false);
+    const [mensagemDiv, setMensagemDiv] = useState('Carregando aplicação...');
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -36,6 +38,31 @@ const Register: React.FC = () => {
            
         }
     };
+
+    useEffect(() => {
+        const initializeApp = async () => {
+            setMensagemDiv("Carregando aplicação...");
+            
+            try {
+                const response = await axios.get(`${url}/connect`, { timeout: 5000 }); // Tempo limite de 5 segundos
+                if (response.status === 200) {
+                    setIsAppLoaded(true);
+                } else {
+                    throw new Error("Erro ao conectar com o backend.");
+                }
+            } catch (error) {
+                console.error('Erro ao inicializar a aplicação: ', error);
+                setMensagemDiv("Não foi possível carregar a aplicação. Aguarde alguns instantes e recarregue a página.");
+                setIsAppLoaded(true);
+            }
+        };
+    
+        initializeApp();
+    }, []);
+    
+      if (!isAppLoaded) {
+        return <div className="loading-screen">{mensagemDiv}</div>;
+      }
     
 
     return (
