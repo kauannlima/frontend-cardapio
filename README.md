@@ -21,3 +21,5 @@ O **Frontend Cardápio** é uma aplicação web projetada para ser a interface d
 ## Link para o site em produção
 
 Acesse a aplicação em produção: [Cardapio Dev](https://frontend-cardapio.onrender.com)
+
+⚠️ O primeiro acesso pode levar alguns segundos devido à hibernação da hospedagem gratuita.
